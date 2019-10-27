@@ -9,16 +9,13 @@
       <view class='text-content margin-top-sm'>{{post.title}}</view>
       <view class="grid col-1 flex-sub padding-lr">
         <view class="bg-img only-img" style="background-image:url({{post.defaultImageUrl}})" />
+        <!-- <image src="{{post.defaultImageUrl}}"></image> -->
       </view>
       <view class='text-gray text-sm text-right padding'>
-        <text class="cuIcon-timefill" />
-        {{post.createTime}}
-        <text class="cuIcon-attentionfill" />
-        {{post.totalVisits}}
-        <text class="cuIcon-appreciatefill" />
-        {{post.totalZans}}
-        <text class="cuIcon-messagefill" />
-        {{post.totalComments}}
+        <text class="cuIcon-timefill" /> {{post.createTime}}
+        <text class="cuIcon-attentionfill" /> {{post.totalVisits}}
+        <text class="cuIcon-appreciatefill" /> {{post.totalZans}}
+        <text class="cuIcon-messagefill" /> {{post.totalComments}}
       </view>
     </view>
   </view>
@@ -36,8 +33,7 @@
 <view class="bg-white margin-top-xs">
   <view class="cu-bar bg-white">
     <view class='action'>
-      <text class='cuIcon-titles text-orange '></text>
-      共{{post.totalComments}}条评论
+      <text class='cuIcon-titles text-orange '></text> 共{{post.totalComments}}条评论
     </view>
   </view>
   <!-- 数据不存在 -->
