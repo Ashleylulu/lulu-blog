@@ -1,7 +1,7 @@
 /**
  * 打赏二维码
  */
-var moneyUrl ="https://test-91f3af.tcb.qcloud.la/common/WechatIMG66.jpeg?sign=38e2cccbf86dd602ae575c89b2911b16&t=1556369699"
+var moneyUrl ="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo2Pc3pVuWXumNlgMFib5TX3FARXlFXSvcvDPgav2BIfVq5qW6rW9QN430OYSKTXRgpagSLntNp5kw/132"
 
 /**
  * 公众号二维码
