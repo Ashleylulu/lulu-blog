@@ -3,6 +3,15 @@
     <view class="cu-bar bg-white solid-bottom margin-top">
         <view class='action'>
             <text class='cuIcon-titles text-orange '></text>
+            轮播图标题
+        </view>
+    </view>
+    <view class="cu-form-group align-start">
+        <textarea maxlength="-1" value='{{post.swtitle}}' placeholder="请输入轮播图标题" id="swiperTitle" bindblur="changePostDetail"></textarea>
+    </view>
+    <view class="cu-bar bg-white solid-bottom margin-top">
+        <view class='action'>
+            <text class='cuIcon-titles text-orange '></text>
             文章标题
         </view>
     </view>

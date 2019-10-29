@@ -9,42 +9,65 @@
       </view>
     </view>
   </form>
-  <scroll-view scroll-x class="bg-white nav solid-bottom">
-    <view class="flex text-center">
-      <view wx:for="{{navItems}}" wx:for-index="idx" data-data="{{item}}" class="cu-item flex-sub {{item.index==tabCur?'text-green cur':''}}" bindtap='tabSelect' data-id="{{item.index}}">
-        {{item.name}}
-      </view>
-    </view>
-  </scroll-view>
-  <scroll-view wx:if="{{showHot}}" scroll-x class="bg-white nav solids-bottom">
-    <view class="padding bg-white">
-      <view wx:for="{{hotItems}}" wx:for-index="idx" data-data="{{item}}" class="cu-tag round lg {{idx==hotCur?'bg-blue':''}}" bindtap='hotSelect' data-id="{{idx}}">
-        {{item}}
-      </view>
-    </view>
-  </scroll-view>
-  <scroll-view wx:if="{{showLabels}}" scroll-x class="bg-white nav solids-bottom">
-    <view class="padding bg-white">
-      <view class="cu-tag round lg {{'全部'==labelCur?'bg-blue':''}}" data-id="全部" bindtap='labelSelect'>全部</view>
-      <view wx:for="{{labelList}}" wx:key="idx" wx:for-index="idx" wx:for-item="item" class="cu-tag round lg {{item.value==labelCur?'bg-blue':''}}" bindtap='labelSelect' data-id="{{item.value}}">
-        {{item.value}}
-      </view>
-    </view>
-  </scroll-view>
+  <!--<scroll-view scroll-x class="bg-white nav solid-bottom">-->
+    <!--<view class="flex text-center">-->
+      <!--<view wx:for="{{navItems}}" wx:for-index="idx" data-data="{{item}}" class="cu-item flex-sub {{item.index==tabCur?'text-green cur':''}}" bindtap='tabSelect' data-id="{{item.index}}">-->
+        <!--{{item.name}}-->
+      <!--</view>-->
+    <!--</view>-->
+  <!--</scroll-view>-->
+  <!--<scroll-view wx:if="{{showHot}}" scroll-x class="bg-white nav solids-bottom">-->
+    <!--<view class="padding bg-white">-->
+      <!--<view wx:for="{{hotItems}}" wx:for-index="idx" data-data="{{item}}" class="cu-tag round lg {{idx==hotCur?'bg-blue':''}}" bindtap='hotSelect' data-id="{{idx}}">-->
+        <!--{{item}}-->
+      <!--</view>-->
+    <!--</view>-->
+  <!--</scroll-view>-->
+  <!--<scroll-view wx:if="{{showLabels}}" scroll-x class="bg-white nav solids-bottom">-->
+    <!--<view class="padding bg-white">-->
+      <!--<view class="cu-tag round lg {{'全部'==labelCur?'bg-blue':''}}" data-id="全部" bindtap='labelSelect'>全部</view>-->
+      <!--<view wx:for="{{labelList}}" wx:key="idx" wx:for-index="idx" wx:for-item="item" class="cu-tag round lg {{item.value==labelCur?'bg-blue':''}}" bindtap='labelSelect' data-id="{{item.value}}">-->
+        <!--{{item.value}}-->
+      <!--</view>-->
+    <!--</view>-->
+  <!--</scroll-view>-->
+</view>
+
+<!--轮播图开始-->
+<view class="swiper-con">
+  <swiper indicator-dots="{{indicatorDots}}"
+          autoplay="{{autoplay}}"
+          interval="{{interval}}"
+          duration="{{duration}}"
+          indicator-color="{{indicatorColor}}"
+          indicator-active-color="{{indicatorActiveColor}}">
+    <block wx:for="{{posts}}" wx:key="*this" wx:if="{{item.swtitle}}"  >
+      <swiper-item id="{{item._id}}" bindtap="bindPostDetail">
+        <image src="{{item.defaultImageUrl}}"></image>
+        <text class="swiper-tit">{{item.swtitle}}</text>
+        <text class="swiper-tit swiper-intro">{{item.digest}}</text>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<!--轮播图结束-->
+<!--今日推荐-->
+<view class="today-recommend">
+  <text>今日推荐</text>
 </view>
 <!-- 文章列表 -->
 <view class="cu-card dynamic no-card">
-  <view wx:for="{{posts}}" wx:key="idx" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}" id="{{item._id}}" bindtap="bindPostDetail" class="cu-item shadow solids-bottom">
+  <view wx:for="{{posts}}" wx:key="idx" wx:if="{{!item.swtitle}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}" id="{{item._id}}" bindtap="bindPostDetail" class="cu-item shadow solids-bottom">
     <view class='text-content margin-top-sm'>{{item.title}}</view>
     <view class="grid col-1 flex-sub padding-lr">
       <!-- <view class="bg-img only-img" style="background-image:url({{item.defaultImageUrl}})"></view> -->
-      <image src= "{{item.defaultImageUrl}}"></image>
+      <image src="{{item.defaultImageUrl}}" class="card-img"></image>
     </view>
     <view class='text-gray text-sm text-right padding'>
-      <text class="cuIcon-timefill"></text> {{item.createTime}}
-      <text class="cuIcon-attentionfill" /> {{item.totalVisits}}
-      <text class="cuIcon-appreciatefill" /> {{item.totalZans}}
-      <text class="cuIcon-messagefill" /> {{item.totalComments}}
+      <text class="cuIcon-timefill">{{item.createTime}}</text>
+      <text class="cuIcon-attentionfill"> {{item.totalVisits}}</text>
+      <text class="cuIcon-appreciatefill"> {{item.totalZans}}</text>
+      <text class="cuIcon-messagefill"> {{item.totalComments}}</text>
     </view>
   </view>
 </view>

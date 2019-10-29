@@ -70,6 +70,10 @@ Page({
         post.originalUrl = e.detail.value
         break
       }
+      case 'swiperTitle': {
+          post.swtitle = e.detail.value
+          break
+      }
     }
 
     that.setData({
@@ -172,7 +176,8 @@ Page({
         isShow: 0, //是否展示
         originalUrl: "",
         content: res,
-        totalCollection: 10 + Math.floor(Math.random() * 40)
+        totalCollection: 10 + Math.floor(Math.random() * 40),
+        swtitle:post.swtitle //轮播图标题
       }
     }
     else {

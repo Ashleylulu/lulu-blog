@@ -21,7 +21,20 @@ Page({
     hotCur: 0,
     labelList: [],
     labelCur: "全部",
-    whereItem:['', 'createTime','']//下拉查询条件
+    whereItem:['', 'createTime',''],//下拉查询条件
+    /*轮播图参数*/
+    background:[
+        "https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo2Pc3pVuWXumNlgMFib5TX3FARXlFXSvcvDPgav2BIfVq5qW6rW9QN430OYSKTXRgpagSLntNp5kw/132",
+        "https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83er6OV33jHia3UyAKxQGBexgrlic3v0Q2icmKoc7oLlfNZ7OwodPYhWklfgEj8pKxvCNdkM4PHVdsyOww/132"
+    ],
+    indicatorDots:true,//是否显示指示点
+    vertical:false,//滑动方向是否为纵向
+    autoplay:true,//是否自动播放
+    interval:2000,//自动播放间隔时长
+    duration:500,//幻灯片切换时长
+    indicatorColor:"#d7f0db",//指示点颜色
+    indicatorActiveColor:"#39b54a",//当前指示点的颜色
+    /*轮播图结束*/
   },
 
   /**
@@ -244,6 +257,7 @@ Page({
         page: page + 1,
         posts: that.data.posts.concat(result.data),
       })
+        console.log(that.data.posts)
     }
     wx.hideLoading()
   }
