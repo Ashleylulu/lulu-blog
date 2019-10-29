@@ -1,0 +1,31 @@
+<view>
+    <form bindsubmit='bindconfirm'>
+        <view class="cu-bar search bg-white">
+            <view class='search-form round'>
+                <text class="cuIcon-search"></text>
+                <input type="text" placeholder="搜索感兴趣的菜谱或关键字"  value="{{defaultSearchValue}}" bindconfirm="bindconfirm" name="searchContent" confirm-type="search"></input>
+            </view>
+        </view>
+    </form>
+</view>
+
+<!-- 文章列表 -->
+<view class="cu-card dynamic no-card">
+    <view wx:for="{{posts}}" wx:key="idx"  wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}" id="{{item._id}}" bindtap="bindPostDetail" class="cu-item shadow solids-bottom">
+        <view class='text-content margin-top-sm'>{{item.title}}</view>
+        <view class="grid col-1 flex-sub padding-lr">
+            <!-- <view class="bg-img only-img" style="background-image:url({{item.defaultImageUrl}})"></view> -->
+            <image src="{{item.defaultImageUrl}}" class="card-img"></image>
+        </view>
+        <view class='text-gray text-sm text-right padding'>
+            <text class="cuIcon-timefill">{{item.createTime}}</text>
+            <text class="cuIcon-attentionfill"> {{item.totalVisits}}</text>
+            <text class="cuIcon-appreciatefill"> {{item.totalZans}}</text>
+            <text class="cuIcon-messagefill"> {{item.totalComments}}</text>
+        </view>
+    </view>
+</view>
+<!-- 数据不存在 -->
+<view wx:if="{{nodata}}">
+    <template is="nodata" />
+</view>

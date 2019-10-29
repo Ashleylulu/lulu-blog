@@ -23,10 +23,6 @@ Page({
     labelCur: "全部",
     whereItem:['', 'createTime',''],//下拉查询条件
     /*轮播图参数*/
-    background:[
-        "https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo2Pc3pVuWXumNlgMFib5TX3FARXlFXSvcvDPgav2BIfVq5qW6rW9QN430OYSKTXRgpagSLntNp5kw/132",
-        "https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83er6OV33jHia3UyAKxQGBexgrlic3v0Q2icmKoc7oLlfNZ7OwodPYhWklfgEj8pKxvCNdkM4PHVdsyOww/132"
-    ],
     indicatorDots:true,//是否显示指示点
     vertical:false,//滑动方向是否为纵向
     autoplay:true,//是否自动播放
@@ -87,8 +83,13 @@ Page({
   },
   /**
    * 搜索功能
-   * @param {} e 
+   * @param {} e
    */
+  bindReturn: function(){
+    wx.navigateTo({
+      url: '../search/search'
+    })
+  },
   bindconfirm: async function (e) {
     let that = this;
     console.log('e.detail.value', e.detail.value)

@@ -1,11 +1,11 @@
 <import src="../../templates/nodata.wxml" />
 <!-- 搜索栏 -->
 <view class='box'>
-  <form bindsubmit='bindconfirm'>
+  <form bindsubmit='bindReturn'>
     <view class="cu-bar search bg-white">
       <view class='search-form round'>
         <text class="cuIcon-search"></text>
-        <input type="text" placeholder="搜索感兴趣的文章" value="{{defaultSearchValue}}" bindconfirm="bindconfirm" name="searchContent" confirm-type="search"></input>
+        <input type="text" placeholder="搜索感兴趣的菜谱或关键字"  value="{{defaultSearchValue}}" bindtap="bindReturn" name="searchContent" confirm-type="search"></input>
       </view>
     </view>
   </form>
