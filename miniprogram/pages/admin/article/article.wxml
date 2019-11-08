@@ -60,6 +60,33 @@
             </view>
         </view>
     </view>
+
+    <!--视频上传2019/11/8-->
+    <view class="cu-bar bg-white solid-bottom margin-top">
+        <view class='action'>
+            <text class='cuIcon-titles text-orange'></text>
+            上传视频
+        </view>
+    </view>
+    <view wx:if="{{videoList.length>0}}" class="cu-card dynamic no-card">
+        <view class="cu-item shadow solids-bottom padding-bottom">
+            <view class="grid col-1 flex-sub padding-lr">
+                <view class="bg-img only-img text-right">
+                    <video src="{{videoList[0]}}" class="show-video"></video>
+                    <view class="cu-tag bg-red" catchtap="DelVideo" data-index="{{index}}">
+                        <text class="cuIcon-close"></text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{videoList.length === 0}}" class="cu-form-group padding-top">
+        <view class="grid col-4  grid-square flex-sub">
+            <view class="solids" bindtap="ChooseVideo">
+                <text class="iconfont icontianjiashipin icon-video"></text>
+            </view>
+        </view>
+    </view>
     <!-- 文章详情维护（富文本） -->
     <view class="cu-bar bg-white solid-bottom margin-top">
         <view class='action'>

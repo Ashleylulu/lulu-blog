@@ -1,4 +1,5 @@
 @import "icon.wxss";
+@import "iconfont.wxss";
 @import "colorui.wxss";
 @import "editor.wxss";
 @import "editorIcon.wxss";

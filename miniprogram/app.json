@@ -15,7 +15,8 @@
     "pages/admin/comment/comment",
     "pages/admin/classify/classify",
     "pages/detail/original",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/health/health"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -42,9 +43,9 @@
         "text": "专题"
       },
       {
-        "pagePath": "pages/topic/topic",
-        "iconPath": "/images/tab/function.png",
-        "selectedIconPath": "/images/tab/function_clicked.png",
+        "pagePath": "pages/health/health",
+        "iconPath": "/images/tab/health.png",
+        "selectedIconPath": "/images/tab/health_click.png",
         "text": "养生"
       },
       {

@@ -48,3 +48,15 @@
 .ql-active {
   color: #06c;
 }
+
+.icon-video{
+  font-size: 28px;
+  color: #8A99A2;
+  margin-top: 17px;
+}
+.solids{
+  text-align: center;
+}
+.show-video{
+height: 160px;
+}

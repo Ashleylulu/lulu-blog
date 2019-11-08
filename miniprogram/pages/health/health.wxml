@@ -1,0 +1,11 @@
+<import src="../../../templates/nodata.wxml" />
+<!-- 视频列表 -->
+<view class="cu-card article no-card">
+    <view>
+
+    </view>
+</view>
+<!-- 数据不存在 -->
+<view wx:if="{{nodata}}">
+    <template is="nodata" />
+</view>

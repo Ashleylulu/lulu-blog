@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="7ae5fbaf-1a7a-44a4-a2ae-90efd2a4f879" name="Default" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
+=======
+    <list default="true" id="7ae5fbaf-1a7a-44a4-a2ae-90efd2a4f879" name="Default" comment="" />
+>>>>>>> Stashed changes
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -240,13 +244,21 @@
       <updated>1572315104423</updated>
       <workItem from="1572315106431" duration="12216000" />
       <workItem from="1572338739048" duration="180000" />
+<<<<<<< Updated upstream
       <workItem from="1572339300642" duration="939000" />
       <workItem from="1572356562950" duration="3087000" />
+=======
+      <workItem from="1572339300642" duration="1102000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="16422000" />
+=======
+    <option name="totallyTimeSpent" value="13498000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />

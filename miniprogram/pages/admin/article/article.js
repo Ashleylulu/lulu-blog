@@ -11,11 +11,13 @@ Page({
     placeholder: "赶快创作你的作品吧...",
     post: {},
     imgList: [],
-    isShowModel: false
+    isShowModel: false,
+    videoList:[]//视频集合
   },
 
   /**
    * 生命周期函数--监听页面加载
+   * async -- 异步
    */
   onLoad: async function (options) {
     let that = this;
@@ -27,10 +29,12 @@ Page({
       that.editorCtx = res.context
     }).exec()
     if (blogId !== undefined) {
-      let result = await api.getPostsById(blogId)
+      let result = await api.getPostsById(blogId);
+      console.log(result)
       that.setData({
         post: result.data,
         imgList: that.data.imgList.concat(result.data.defaultImageUrl),
+        videoList:that.data.videoList.concat(result.data.videoList)
       });
 
       that.editorCtx.setContents({
@@ -132,7 +136,6 @@ Page({
    * @param {*} e 
    */
   savePost: async function (e) {
-
     wx.showLoading({
       title: '保存中...',
     })
@@ -151,6 +154,7 @@ Page({
     let res = await this.getContent()
     let newPost
     if (post._id === undefined) {
+      //上传图片
       let img = ""
       if (that.data.imgList.length > 0) {
         let filePath = that.data.imgList[0]
@@ -158,6 +162,8 @@ Page({
         let imgRes = await api.uploadFile(new Date().getTime() + suffix, filePath)
         img = imgRes.fileID
       }
+      //上传视频
+
       newPost = {
         uniqueId: "",
         sourceFrom: "admin",
@@ -177,7 +183,8 @@ Page({
         originalUrl: "",
         content: res,
         totalCollection: 10 + Math.floor(Math.random() * 40),
-        swtitle:post.swtitle //轮播图标题
+        swtitle:post.swtitle, //轮播图标题
+        videoList:that.data.videoList[0],//上传视频
       }
     }
     else {
@@ -286,6 +293,7 @@ Page({
       cancelText: '取消',
       confirmText: '确定',
       success: res => {
+        console.log(e)
         if (res.confirm) {
           this.data.imgList.splice(e.currentTarget.dataset.index, 1);
           this.setData({
@@ -294,6 +302,47 @@ Page({
         }
       }
     })
+  },
+  /*上传视频*/
+  ChooseVideo() {
+      var that = this;
+      wx.chooseVideo({
+        count:1,
+        sourceType:['album','camera'],
+        maxDuration:60,
+        camera:['front','back'],
+        success:function (res) {
+          that.data.videoList.push(res.tempFilePath)
+          if (that.data.videoList.length != 0) {//视频列表已有视频,追加
+            that.setData({
+                videoList:that.data.videoList
+            })
+          } else {//暂无视频
+              that.setData({
+                  videoList:res.tempFilePath
+              })
+          }
+      }
+    })
+  },
+  /*删除视频*/
+  DelVideo(e){
+      wx.showModal({
+          title: '删除视频',
+          content: '确定要删除该视频吗？',
+          cancelText: '取消',
+          confirmText: '确定',
+          success: res => {
+            console.log(this.data.videoList)
+              if (res.confirm) {
+                  this.data.videoList.splice(e.currentTarget.dataset.index, 1);
+                  console.log(this.data.videoList)
+                  this.setData({
+                      videoList: this.data.videoList
+                  })
+              }
+          }
+      })
   },
   /**
  * 设置隐藏
