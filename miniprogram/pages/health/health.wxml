@@ -1,8 +1,9 @@
 <import src="../../../templates/nodata.wxml" />
 <!-- 视频列表 -->
 <view class="cu-card article no-card">
-    <view>
-
+    <view wx:for="{{posts}}" wx:if="{{item.videoList}}">
+        <text>{{item.videoTitle}}</text>
+        <video src="{{item.videoList}}"></video>
     </view>
 </view>
 <!-- 数据不存在 -->

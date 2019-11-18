@@ -176,7 +176,9 @@ function getPostsList(page, filter, isShow, orderBy, label) {
             classify: true,
             label: true,
             digest: true,
-            swtitle:true
+            swtitle:true,
+            videoTitle:true,
+            videoList:true
         }).get()
 
 }

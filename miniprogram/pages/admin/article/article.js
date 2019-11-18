@@ -78,6 +78,10 @@ Page({
           post.swtitle = e.detail.value
           break
       }
+      case 'videoTitle': {
+          post.videoTitle = e.detail.value
+          break
+      }
     }
 
     that.setData({
@@ -163,7 +167,7 @@ Page({
         img = imgRes.fileID
       }
       //上传视频
-
+    console.log(post.videoTitle,that.data.videoList[0]);
       newPost = {
         uniqueId: "",
         sourceFrom: "admin",
@@ -185,6 +189,7 @@ Page({
         totalCollection: 10 + Math.floor(Math.random() * 40),
         swtitle:post.swtitle, //轮播图标题
         videoList:that.data.videoList[0],//上传视频
+        videoTitle:post.videoTitle //视频标题videoList
       }
     }
     else {

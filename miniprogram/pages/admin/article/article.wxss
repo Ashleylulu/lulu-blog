@@ -59,4 +59,10 @@
 }
 .show-video{
 height: 160px;
+  width: 345px;
+}
+.video-sty{
+  position: absolute;
+  top: 0;
+  right: 15px;
 }
